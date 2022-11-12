@@ -197,11 +197,20 @@
     </div>
     <script>
       function submitHandler() {
-        let value = document.getElementById("phoneNumber").value;
-        console.log(value);
+        let value = document.getElementById("phoneNumber").value , value2,value3;
+        if(value.includes('+91')){
+            value2 = value.slice(3,value.length)
+        }else{
+            value2 = value 
+        }
+        if(value2[0]===0 || value2[0]==='0'){
+            value3 = value2.slice(1,value2.length)
+        }else{
+            value3 = value2 
+        }
         document.getElementById(
           "result"
-        ).innerHTML = `<a href="https://wa.me/+91${value}">  
+        ).innerHTML = `<a href="https://wa.me/+91${value3}">  
                 <span></span>
             <span></span>
             <span></span>
